@@ -9,6 +9,11 @@ function (Settings) {
         url: "<--PROTO-->://<--ADDR-->:<--PORT-->/db/<--DB_NAME-->",
         username: "<--USER-->",
         password: "<--PASS-->",
+      },
+      graphite: {
+        default: false,
+        type: 'graphite',
+        url: 'http://${GRAPHITE_HOST}:${GRAPHITE_PORT}'
       }
     },
     default_route: '/dashboard/file/default.json',
