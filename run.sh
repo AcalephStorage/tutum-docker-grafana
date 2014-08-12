@@ -5,22 +5,22 @@ set -e
 INFLUXDB_PASS=${INFLUXDB_ENV_INFLUXDB_INIT_PWD:-${INFLUXDB_PASS}}
 INFLUXDB_PASS=${INFLUXDB_1_ENV_INFLUXDB_INIT_PWD:-${INFLUXDB_PASS}}
 
-ELASTICSEARCH_USER=${ELASTICSEARCH_ENV_ELASTICSEARCH_USER:-${ELASTICSEARCH_USER}}
-ELASTICSEARCH_USER=${ELASTICSEARCH_1_ENV_ELASTICSEARCH_USER:-${ELASTICSEARCH_USER}}
-ELASTICSEARCH_PASS=${ELASTICSEARCH_ENV_ELASTICSEARCH_PASS:-${ELASTICSEARCH_PASS}}
-ELASTICSEARCH_PASS=${ELASTICSEARCH_1_ENV_ELASTICSEARCH_PASS:-${ELASTICSEARCH_PASS}}
-
-if [ "${ELASTICSEARCH_HOST}" == "**None**" ]; then
-    unset ELASTICSEARCH_HOST
-fi
-
-if [ "${ELASTICSEARCH_USER}" == "**None**" ]; then
-    unset ELASTICSEARCH_USER
-fi
-
-if [ "${ELASTICSEARCH_PASS}" == "**None**" ]; then
-    unset ELASTICSEARCH_PASS
-fi
+# ELASTICSEARCH_USER=${ELASTICSEARCH_ENV_ELASTICSEARCH_USER:-${ELASTICSEARCH_USER}}
+# ELASTICSEARCH_USER=${ELASTICSEARCH_1_ENV_ELASTICSEARCH_USER:-${ELASTICSEARCH_USER}}
+# ELASTICSEARCH_PASS=${ELASTICSEARCH_ENV_ELASTICSEARCH_PASS:-${ELASTICSEARCH_PASS}}
+# ELASTICSEARCH_PASS=${ELASTICSEARCH_1_ENV_ELASTICSEARCH_PASS:-${ELASTICSEARCH_PASS}}
+#
+# if [ "${ELASTICSEARCH_HOST}" == "**None**" ]; then
+#     unset ELASTICSEARCH_HOST
+# fi
+#
+# if [ "${ELASTICSEARCH_USER}" == "**None**" ]; then
+#     unset ELASTICSEARCH_USER
+# fi
+#
+# if [ "${ELASTICSEARCH_PASS}" == "**None**" ]; then
+#     unset ELASTICSEARCH_PASS
+# fi
 
 if [ "${HTTP_PASS}" == "**Random**" ]; then
     unset HTTP_PASS
@@ -38,9 +38,9 @@ if [ ! -f /.graphite_configured ]; then
     /set_graphite.sh
 fi
 
-if [ ! -f /.elasticsearch_configured ]; then
-    /set_elasticsearch.sh
-fi
+# if [ ! -f /.elasticsearch_configured ]; then
+#     /set_elasticsearch.sh
+# fi
 
 echo "=> Starting and running Nginx..."
 /usr/sbin/nginx
