@@ -5,7 +5,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget pwgen apache2-utils
 
 #ENV GRAFANA_VERSION 1.7.0
-RUN wget http://grafanarel.s3.amazonaws.com/grafana-1.7.0.tar.gz -O grafana.tar.gz && tar zxf grafana.tar.gz && rm grafana.tar.gz && rm -rf app && mv grafana-1.7.0 app
+RUN wget http://grafanarel.s3.amazonaws.com/grafana-1.8.0.tar.gz -O grafana.tar.gz && tar zxf grafana.tar.gz && rm grafana.tar.gz && rm -rf app && mv grafana-1.8.0 app
 
 ADD config.js /app/config.js
 ADD default /etc/nginx/sites-enabled/default
